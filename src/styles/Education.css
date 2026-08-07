@@ -1,0 +1,171 @@
+/* ==========================================
+   EDUCATION
+========================================== */
+
+.education{
+    padding:120px 0;
+
+    position:relative;
+
+    overflow:hidden;
+ background:transparent;
+}
+
+/* ==========================================
+   CARD
+========================================== */
+
+.education-card{
+
+    position:relative;
+
+    max-width:760px;
+
+    margin:auto;
+
+    padding:40px;
+
+    border-radius:24px;
+
+    background:rgba(255,255,255,.03);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    overflow:hidden;
+
+    transition:.4s ease;
+}
+
+.education-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+    135deg,
+    rgba(255,255,255,.05),
+    transparent 65%
+    );
+
+    opacity:0;
+
+    transition:.4s;
+}
+
+.education-card:hover::before{
+
+    opacity:1;
+
+}
+
+.education-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:rgba(255,255,255,.15);
+
+    box-shadow:
+
+    0 20px 50px rgba(0,0,0,.45),
+
+    0 0 30px rgba(255,255,255,.05);
+
+}
+
+/* ==========================================
+   HEADING
+========================================== */
+
+.education-card h3{
+
+    color:#ffffff;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    margin-bottom:12px;
+}
+
+/* ==========================================
+   COLLEGE
+========================================== */
+
+.education-card .college{
+
+    color:#d4d4d8;
+
+    font-size:18px;
+
+    font-weight:500;
+
+    margin-bottom:8px;
+}
+
+/* ==========================================
+   YEAR
+========================================== */
+
+.education-card .year{
+
+    display:inline-block;
+
+    padding:8px 16px;
+
+    margin-bottom:25px;
+
+    border-radius:50px;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:#ffffff;
+
+    font-size:14px;
+}
+
+/* ==========================================
+   DESCRIPTION
+========================================== */
+
+.education-card .description{
+
+    color:#a1a1aa;
+
+    line-height:1.9;
+
+    font-size:17px;
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:768px){
+
+.education{
+
+padding:90px 0;
+
+}
+
+.education-card{
+
+padding:28px;
+
+}
+
+.education-card h3{
+
+font-size:24px;
+
+}
+
+}
