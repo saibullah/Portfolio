@@ -1,5 +1,5 @@
 import "../styles/Hero.css";
-// import profile from "../assets/IMG_4016.jpg.jpeg";
+import profile from "../assets/IMG_4016.jpg.jpeg";
 import resume from "../assets/resume.pdf";
 
 import { motion } from "framer-motion";
@@ -93,7 +93,7 @@ function Hero() {
         <div className="hero-right">
 
           <div className="image-box">
-            {/* <img src={profile} alt="Saibullah" /> */}
+            <img src={profile} alt="Saibullah" />
           </div>
 
         </div>
