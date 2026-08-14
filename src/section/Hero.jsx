@@ -1,6 +1,6 @@
 import "../styles/Hero.css";
 import profile from "../assets/IMG_4016.jpg.jpeg";
-import resume from "../assets/resume.pdf";
+import resume from "../assets/resumenew.pdf";
 
 import { motion } from "framer-motion";
 import {
