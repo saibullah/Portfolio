@@ -18,6 +18,24 @@ const projects = [
     github: "https://github.com/saibullah",
     live: "https://job-portal-frontend-two-tau.vercel.app/"
   },
+  {
+  title: "E-Commerce Website",
+  image: "/images/ecommerce.png",
+  description:
+    "A full-stack MERN e-commerce platform with product management, shopping cart, user authentication, order management, and admin dashboard.",
+
+  tech: [
+    "React",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "Mongoose",
+    "JWT"
+  ],
+
+  github: "https://github.com/saibullah",
+  live: null
+},
 
   {
     title: "Ticket Booking",
