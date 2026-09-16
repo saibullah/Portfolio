@@ -1,123 +1,230 @@
 import "../styles/Projects.css";
+import { motion } from "framer-motion";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const projects = [
   {
+    number: "01",
     title: "Job Portal",
     image: "/images/jobportal.png",
     description:
-      "A full-stack MERN Job Portal with JWT authentication, admin dashboard, job posting, and application management.",
-
-    tech: [
-      "React",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "JWT"
-    ],
-
-    github: "https://github.com/saibullah",
-    live: "https://job-portal-frontend-two-tau.vercel.app/"
+      "A full-stack MERN Job Portal with JWT authentication, role-based authorization, job posting, application management, and an admin dashboard.",
+    tech: ["React", "Node.js", "Express", "MongoDB", "JWT"],
+    github: "https://github.com/saibullah/job-portal-frontend",
+    live: "https://job-portal-frontend-two-tau.vercel.app/",
   },
   {
-  title: "E-Commerce Website",
-  image: "/images/ecommerce.png",
-  description:
-    "A full-stack MERN e-commerce platform with product management, shopping cart, user authentication, order management, and admin dashboard.",
-
-  tech: [
-    "React",
-    "Node.js",
-    "Express",
-    "MongoDB",
-    "Mongoose",
-    "JWT"
-  ],
-
-  github: "https://github.com/saibullah",
-  live: null
-},
-
+    number: "02",
+    title: "E-Commerce Website",
+    image: "/images/ecommerce.png",
+    description:
+      "A full-stack MERN e-commerce platform with product management, shopping cart, authentication, order management, and admin dashboard.",
+    tech: ["React", "Node.js", "Express", "MongoDB", "JWT"],
+    github: "https://github.com/saibullah",
+    live: null,
+  },
   {
+    number: "03",
     title: "Ticket Booking",
     image: "/images/ticketbooking.png",
     description:
-      "Online ticket booking application with booking management and responsive UI.",
-
-    tech: [
-      "React",
-      "Express",
-      "MongoDB"
-    ],
-
+      "A responsive ticket booking interface built with React, featuring API integration, product-style layouts, and booking-focused user interactions.",
+    tech: ["React", "API", "Bootstrap", "CSS"],
     github: "https://github.com/saibullah",
-    live: null
+    live: null,
   },
-
   {
+    number: "04",
     title: "Gemini AI Chatbot",
     image: "/images/chatbot.png",
     description:
-      "AI chatbot built using React, Express, and Gemini API with chat history support.",
-
-    tech: [
-      "React",
-      "Gemini API",
-      "Node.js"
-    ],
-
+      "An AI chatbot application built with React and Node.js, integrating Gemini API functionality with a conversational interface.",
+    tech: ["React", "Node.js", "Gemini API"],
     github: "https://github.com/saibullah",
-    live: null
-  }
+    live: null,
+  },
 ];
-
-
 
 function Projects() {
   return (
-    <section id="projects" className="projects">
+    <section className="projects-space" id="projects">
+
+      <div className="projects-light"></div>
+
       <div className="container">
-        <h2 className="section-title">Projects</h2>
 
-        <div className="projects-grid">
-          {projects.map((project) => (
-            <div className="project-card" key={project.title}>
-              <img src={project.image} alt={project.title} />
+        <motion.div
+          className="projects-header"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+        >
+          <span>03 / PROJECTS</span>
 
-              <h3>{project.title}</h3>
+          <h2>
+            Things I've
+            <strong> built.</strong>
+          </h2>
 
-              <p>{project.description}</p>
+          <p>
+            A collection of projects where I applied my
+            frontend, backend, database, and API development skills.
+          </p>
+        </motion.div>
 
-              <div className="tech">
-                {project.tech.map((item) => (
-                  <span key={item}>{item}</span>
-                ))}
+
+        <div className="projects-list">
+
+          {projects.map((project, index) => (
+
+            <motion.article
+              className="project-window"
+              key={project.title}
+
+              initial={{
+                opacity: 0,
+                y: 70
+              }}
+
+              whileInView={{
+                opacity: 1,
+                y: 0
+              }}
+
+              transition={{
+                duration: 0.7,
+                delay: index * 0.1
+              }}
+
+              viewport={{
+                once: true,
+                amount: 0.15
+              }}
+            >
+
+              {/* Browser Header */}
+
+              <div className="window-header">
+
+                <div className="window-dots">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+
+                <div className="window-address">
+                  /projects/{project.title.toLowerCase().replaceAll(" ", "-")}
+                </div>
+
+                <span className="project-number">
+                  {project.number}
+                </span>
+
               </div>
 
-              <div className="buttons">
-                <a href={project.github}>GitHub</a>
 
-                {project.live ? (
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Live Demo
-                  </a>
-                ) : (
-                  <button className="btn btn-success"
-                    onClick={() =>
-                      alert("🚧 Live demo is currently under development. Please check back soon!")
-                    }
-                  >
-                    Live Demo
-                  </button>
-                )}  
+              {/* Project Content */}
+
+              <div className="project-content">
+
+                <div className="project-preview">
+
+                  <div className="preview-frame">
+
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                    />
+
+                    <div className="preview-overlay">
+                      <span>PROJECT PREVIEW</span>
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div className="project-info">
+
+                  <span className="project-label">
+                    FULL STACK PROJECT
+                  </span>
+
+                  <h3>{project.title}</h3>
+
+                  <p>
+                    {project.description}
+                  </p>
+
+
+                  <div className="project-tech">
+
+                    {project.tech.map((item) => (
+                      <span key={item}>
+                        {item}
+                      </span>
+                    ))}
+
+                  </div>
+
+
+                  <div className="project-actions">
+
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-github"
+                    >
+                      <FaGithub />
+                      GitHub
+                    </a>
+
+
+                    {project.live ? (
+
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-live"
+                      >
+                        Live Demo
+                        <FaExternalLinkAlt />
+                      </a>
+
+                    ) : (
+
+                      <button
+                        className="project-live"
+                        onClick={() =>
+                          alert(
+                            "🚧 Live demo is currently under development."
+                          )
+                        }
+                      >
+                        Live Demo
+                        <FaExternalLinkAlt />
+                      </button>
+
+                    )}
+
+                  </div>
+
+                </div>
+
               </div>
-            </div>
+
+            </motion.article>
+
           ))}
+
         </div>
+
       </div>
+
     </section>
   );
 }
