@@ -1,5 +1,5 @@
 import "../styles/Hero.css";
-import profile from "../assets/IMG_4016.jpg.jpeg";
+import profile from "../assets/image.png";
 import resume from "../assets/SaibullahResume.pdf";
 
 import { motion } from "framer-motion";
