@@ -1,12 +1,14 @@
 import "../styles/Projects.css";
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-
+import job from "../assets/jobportal.png"
+import ecommerce from "../assets/Ecommerce.png"
+import dvd from "../assets/dvd.png"
 const projects = [
   {
     number: "01",
     title: "Job Portal",
-    image: "/images/jobportal.png",
+    image: job ,
     description:
       "A full-stack MERN Job Portal with JWT authentication, role-based authorization, job posting, application management, and an admin dashboard.",
     tech: ["React", "Node.js", "Express", "MongoDB", "JWT"],
@@ -16,33 +18,33 @@ const projects = [
   {
     number: "02",
     title: "E-Commerce Website",
-    image: "/images/ecommerce.png",
+    image: ecommerce,
     description:
       "A full-stack MERN e-commerce platform with product management, shopping cart, authentication, order management, and admin dashboard.",
     tech: ["React", "Node.js", "Express", "MongoDB", "JWT"],
     github: "https://github.com/saibullah",
-    live: null,
+    live: "https://ecommerce-two-zeta-52.vercel.app//",
   },
   {
     number: "03",
-    title: "Ticket Booking",
-    image: "/images/ticketbooking.png",
+    title: "Movie DVD",
+    image: dvd,
     description:
       "A responsive ticket booking interface built with React, featuring API integration, product-style layouts, and booking-focused user interactions.",
     tech: ["React", "API", "Bootstrap", "CSS"],
     github: "https://github.com/saibullah",
-    live: null,
+    live: "https://movie-dvd-booking.vercel.app/",
   },
-  {
-    number: "04",
-    title: "Gemini AI Chatbot",
-    image: "/images/chatbot.png",
-    description:
-      "An AI chatbot application built with React and Node.js, integrating Gemini API functionality with a conversational interface.",
-    tech: ["React", "Node.js", "Gemini API"],
-    github: "https://github.com/saibullah",
-    live: null,
-  },
+  // {
+  //   number: "04",
+  //   title: "Gemini AI Chatbot",
+  //   image: "/images/chatbot.png",
+  //   description:
+  //     "An AI chatbot application built with React and Node.js, integrating Gemini API functionality with a conversational interface.",
+  //   tech: ["React", "Node.js", "Gemini API"],
+  //   github: "https://github.com/saibullah",
+  //   live: null,
+  // },
 ];
 
 function Projects() {

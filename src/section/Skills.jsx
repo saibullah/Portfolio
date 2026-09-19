@@ -17,6 +17,7 @@ const skills = [
   { name: "Axios", level: "Intermediate" },
   { name: "REST APIs", level: "Intermediate" },
   { name: "Vercel", level: "Beginner" },
+  { name: "Render", level: "Beginner" }
 ];
 
 function Skills() {
