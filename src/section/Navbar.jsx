@@ -1,106 +1,140 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaBars, FaTimes, FaArrowRight } from "react-icons/fa";
 import "../styles/Navbar.css";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   const closeMenu = () => {
     setMenuOpen(false);
   };
 
-  return (
-    <nav className="spatial-navbar">
+  // Navbar scroll state
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
 
+      const sections = [
+        "home",
+        "about",
+        "skills",
+        "projects",
+        "education",
+        "contact",
+      ];
+
+      let current = "home";
+
+      sections.forEach((id) => {
+        const section = document.getElementById(id);
+
+        if (section) {
+          const rect = section.getBoundingClientRect();
+
+          if (rect.top <= window.innerHeight * 0.35) {
+            current = id;
+          }
+        }
+      });
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const navItems = [
+    { label: "Home", id: "home" },
+    { label: "About", id: "about" },
+    { label: "Skills", id: "skills" },
+    { label: "Projects", id: "projects" },
+    { label: "Journey", id: "education" },
+    { label: "Contact", id: "contact" },
+  ];
+
+  return (
+    <nav
+      className={`spatial-navbar ${
+        scrolled ? "navbar-scrolled" : ""
+      }`}
+    >
       <div className="nav-shell">
 
-        {/* LOGO */}
+        {/* MOVING LIGHT */}
+        <div className="nav-light"></div>
 
+        {/* LOGO */}
         <a
           href="#home"
           className="nav-logo"
           onClick={closeMenu}
         >
-          Saibullah<span>.</span>
+          <span className="logo-main">Saibullah</span>
+          <span className="logo-dot">.</span>
         </a>
 
 
         {/* STATUS */}
-
         <div className="nav-status">
-
           <span className="status-dot"></span>
 
-          <span>
+          <span className="status-text">
             AVAILABLE
           </span>
-
         </div>
 
 
-        {/* DESKTOP NAV */}
-
+        {/* NAV LINKS */}
         <ul
-          className={
-            menuOpen
-              ? "spatial-nav-links active"
-              : "spatial-nav-links"
-          }
+          className={`spatial-nav-links ${
+            menuOpen ? "active" : ""
+          }`}
         >
+          {navItems.map((item) => (
+            <li key={item.id}>
+              <a
+                href={`#${item.id}`}
+                onClick={closeMenu}
+                className={
+                  activeSection === item.id
+                    ? "active-link"
+                    : ""
+                }
+              >
+                <span>{item.label}</span>
 
-          <li>
-            <a href="#home" onClick={closeMenu}>
-              Home
-            </a>
-          </li>
-
-          <li>
-            <a href="#about" onClick={closeMenu}>
-              About
-            </a>
-          </li>
-
-          <li>
-            <a href="#skills" onClick={closeMenu}>
-              Skills
-            </a>
-          </li>
-
-          <li>
-            <a href="#projects" onClick={closeMenu}>
-              Projects
-            </a>
-          </li>
-
-          <li>
-            <a href="#education" onClick={closeMenu}>
-              Journey
-            </a>
-          </li>
-
-          <li>
-            <a href="#contact" onClick={closeMenu}>
-              Contact
-            </a>
-          </li>
-
+                {activeSection === item.id && (
+                  <i className="active-dot"></i>
+                )}
+              </a>
+            </li>
+          ))}
         </ul>
 
 
-        {/* CONTACT BUTTON */}
-
+        {/* CONTACT */}
         <a
           href="#contact"
           className="nav-contact"
           onClick={closeMenu}
         >
-          Let's Talk
-          <FaArrowRight />
+          <span>Let's Talk</span>
+
+          <span className="arrow-wrap">
+            <FaArrowRight />
+          </span>
         </a>
 
 
-        {/* MOBILE BUTTON */}
-
+        {/* MOBILE */}
         <button
           className="menu-button"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -110,7 +144,6 @@ function Navbar() {
         </button>
 
       </div>
-
     </nav>
   );
 }

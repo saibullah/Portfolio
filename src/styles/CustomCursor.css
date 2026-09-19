@@ -1,0 +1,15 @@
+.liquid-cursor {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9998;
+  mix-blend-mode: multiply;
+}
+
+@media (max-width: 768px) {
+  .liquid-cursor {
+    display: none;
+  }
+}
